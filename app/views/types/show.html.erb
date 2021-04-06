@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<div class="bg-warning text-dark text-center">
+  <p>
+    <strong>Name:</strong>
+    <%= @type.name %>
+  </p>
+
+  <%= link_to 'Edit', edit_type_path(@type), class: "btn" %> |
+  <%= link_to 'Back', types_path, class: "btn" %>
+</div>
+

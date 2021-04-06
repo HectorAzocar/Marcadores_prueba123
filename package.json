@@ -1,0 +1,8 @@
+{
+  "name": "marker",
+  "private": true,
+  "dependencies": {
+    "highcharts": "^9.0.1",
+    "jquery": "^3.6.0"
+  }
+}

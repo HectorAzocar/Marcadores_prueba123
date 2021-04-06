@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center my-5">Categorias</h1>
+
+<table class="table table-bordered table-secondary">
+  <thead class="bg-warning text-dark">
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Publica</th>
+      <th>Tipo de categoria</th>
+      <th colspan="4" class="text-center">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td> <%= category.id %> </td>
+        <td><%= category.name %></td>
+        <td><%= category.public %></td>
+        <% if category.category_id.nil? %>
+        <td>Principal</td>
+        <%else%>
+        <td>Subcategoria</td>
+        <%end%>
+        <td><%= link_to 'Ver', category %></td>
+        <td><%= link_to 'Editar', edit_category_path(category) %></td>
+        <td><%= link_to 'Eliminar', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "Atras", root_path, class: "btn btn-warning" %>
+<%= link_to 'Crear una nueva categoria', new_category_path, class: "btn btn-warning" %>

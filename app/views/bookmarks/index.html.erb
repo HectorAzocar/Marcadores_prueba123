@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<div class="bg-warning py-4 px-5 text-center">
+  <h4 class="my-5 text-dark">Crear un nuevo marcador</h4>
+  <%= render "form" %>
+</div>
+
+<h1 class="text-center my-5">Bookmarks</h1>
+
+<table class="table table-bordered table-secondary">
+  <thead class="bg-warning text-dark">
+    <tr>
+      <th>Url</th>
+      <th>Category</th>
+      <th>Type</th>
+      <th colspan="4" class="text-center">Opciones</th>
+    </tr>
+  </thead>
+  <tbody id="table">
+    <% @bookmarks.each do |bookmark| %>
+    <% if @public_categories.include?(bookmark.category) || @public_categories.include?(bookmark.category.category_id) %>
+      <tr id=bookmark_<%= bookmark.id %> >
+        <td><%= bookmark.url %></td>
+        <td><%= bookmark.category.name %></td>
+        <td><%= bookmark.type.name %></td>
+        <td><%= link_to 'Ver', bookmark %></td>
+        <td><%= link_to 'Editar', edit_bookmark_path(bookmark.id)%></td>
+        <td><%= link_to 'Eliminar', bookmark, method: :delete, data: { confirm: '¿Estás seguro que deseas eliminarlo?' }, remote: true %></td>
+      </tr>
+    <%end%>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Editar categorias", categories_path, class: "btn btn-warning" %>
+<%= link_to "Editar tipos", types_path, class: "btn btn-warning"  %>

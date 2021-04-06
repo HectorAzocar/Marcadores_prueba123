@@ -1,0 +1,29 @@
+<%= form_with(model: @bookmark, remote: true, data: {confirm: "¿Deseas crear este marcador?"}, class: "form-inline text-white text-center" ) do |form| %>
+  <% if @bookmark.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
+      <ul>
+      <% @bookmark.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field mx-2">
+    <%= form.label "Url de la página web" %>
+    <%= form.text_field :url%>
+  </div>
+  <div class="field mx-2">
+    <%= form.label "Tipo de archivo" %>
+    <%= form.collection_select :type_id, @types, :id, :name, prompt: "Selecciona..."%>
+  </div>
+  <div class="field mx-2">
+    <%= form.label "Categoria del marcador" %>
+    <%= form.collection_select :category_id, @categories, :id, :name, prompt: "Selecciona..."%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Submit", class: 'btn btn-light' %>
+  </div>
+<% end %>

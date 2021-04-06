@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="bg-warning text-dark text-center">
+  <p>
+    <strong>Name:</strong>
+    <%= @category.name %>
+  </p>
+
+  <p>
+    <strong>Public:</strong>
+    <%= @category.public %>
+  </p>
+
+  <% if @category.category.nil? %>
+  <p>
+    <strong>Categoria</strong>
+    Principal
+  </p>
+  <% else %>
+  <p>
+    <strong>Categoria</strong>
+    <%= @category.category.name %>
+  </p>
+  <%end%>
+
+  <%= link_to 'Edit', edit_category_path(@category), class: "btn" %> |
+  <%= link_to 'Back', categories_path, class: "btn" %>
+</div>
+
