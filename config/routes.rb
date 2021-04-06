@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   root "bookmarks#index"
 
-  get "api/categories", to: "categories#api"
+  get "cycle/categories", to: "categories#cycle"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -49,10 +49,10 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def api
+  def cycle
     categoria_principal = Category.where('category_id is null')
-    api = categoria_principal.map{|category| {Categoria: category.name, Subcategoria: category.categories.map{|sub| sub.name}}}
-    render json: api
+    cycle = categoria_principal.map{|category| {Categoria: category.name, Subcategoria: category.categories.map{|sub| sub.name}}}
+    render json: cycle
   end
 
   private

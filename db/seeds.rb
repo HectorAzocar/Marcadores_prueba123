@@ -1,5 +1,12 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
 
-#Creo los tipos de Bookmarks
+
 Type.destroy_all
 Type.create(
        [
@@ -18,28 +25,28 @@ Type.create(
        ]
 )
 
-#Creo las Categorias de Bookmarks
+
 Category.destroy_all
 Category.create(
        [
               {
-                     name: "Autosmoviles" #Tendrá el ID = 1
+                     name: "Autosmoviles" 
               },
               {
-                     name: "electrodomesticos" #Tendrá el ID = 2
+                     name: "electrodomesticos" 
               },
               {
-                     name: "Restaurantes" #Tendra el ID = 3
+                     name: "Restaurantes" 
               },
               {
-                     name: "Redes Sociales" #Tendrá el ID = 4
+                     name: "Redes Sociales" 
               }
        ]
 )
 
-#Creo las sub categorias
+
 Category.create(
-       [      #Sub categorias de Animales
+       [      
               {
                      name: "Camioneta",
                      category_id: 1
@@ -48,7 +55,7 @@ Category.create(
                      name: "Auto",
                      category_id: 1
               },
-              #Sub Categorias de Ropa
+              
               {
                      name: "monitores",
                      category_id: 2
@@ -57,7 +64,7 @@ Category.create(
                      name: "Computadoras",
                      category_id: 2
               },
-              #Sub categorias de Comida
+              
               {
                      name: "Mcdonald",
                      category_id: 3
@@ -66,7 +73,7 @@ Category.create(
                      name: "Subway",
                      category_id: 3
               },
-              #Sub categorias de Redes sociales
+              
               {
                      name: "Facebook",
                      category_id: 4
@@ -78,7 +85,7 @@ Category.create(
        ]
 )
 
-#Creacion de Bookmarks
+
 Bookmark.destroy_all
 
 20.times do
